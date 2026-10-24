@@ -1,0 +1,6 @@
+{
+  "name": "Survival Manual",
+  "description": "Offline survival manual with encrypted health profiles and regional calamity guides for India.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
