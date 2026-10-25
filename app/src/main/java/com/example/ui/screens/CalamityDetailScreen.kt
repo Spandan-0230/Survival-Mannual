@@ -63,8 +63,30 @@ fun CalamityDetailScreen(
                     }
                 },
                 actions = {
-                    IconButton(onClick = { PdfExporter.exportCalamityGuide(context, calamity, appLanguage) }) {
-                        Icon(Icons.Default.Share, contentDescription = translate("Export PDF", appLanguage), tint = Color.White)
+                    OutlinedButton(
+                        onClick = { PdfExporter.exportCalamityGuide(context, calamity, appLanguage) },
+                        shape = RoundedCornerShape(12.dp),
+                        border = BorderStroke(1.dp, Color(0xFF1E293B)),
+                        colors = ButtonDefaults.outlinedButtonColors(
+                            containerColor = Color(0xFF1C1B1F),
+                            contentColor = Color(0xFF60A5FA)
+                        ),
+                        contentPadding = PaddingValues(horizontal = 12.dp, vertical = 6.dp),
+                        modifier = Modifier.padding(end = 12.dp)
+                    ) {
+                        Icon(
+                            Icons.Default.PictureAsPdf,
+                            contentDescription = translate("Export PDF", appLanguage),
+                            tint = Color(0xFFEF4444),
+                            modifier = Modifier.size(18.dp)
+                        )
+                        Spacer(modifier = Modifier.width(6.dp))
+                        Text(
+                            text = translate("Export PDF", appLanguage),
+                            fontSize = 12.sp,
+                            fontWeight = FontWeight.SemiBold,
+                            color = Color.White
+                        )
                     }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
@@ -90,7 +112,8 @@ fun CalamityDetailScreen(
                         Card(
                             shape = RoundedCornerShape(16.dp),
                             modifier = Modifier.size(300.dp, 200.dp),
-                            border = BorderStroke(1.dp, Color(0xFF1E293B))
+                            border = BorderStroke(1.dp, Color(0xFF1E293B)),
+                            colors = CardDefaults.cardColors(containerColor = Color(0xFF1C1B1F))
                         ) {
                             AsyncImage(
                                 model = imageUrl,
@@ -133,6 +156,35 @@ fun CalamityDetailScreen(
                     Text("${translate("National Helpline", appLanguage)}: ${calamity.helplineNo}", fontSize = 16.sp, fontWeight = FontWeight.Bold, color = Color(0xFFEF4444))
                 }
             }
+
+            Button(
+                onClick = { PdfExporter.exportCalamityGuide(context, calamity, appLanguage) },
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 20.dp, vertical = 16.dp)
+                    .height(54.dp),
+                shape = RoundedCornerShape(16.dp),
+                border = BorderStroke(1.dp, Color(0xFF1E293B)),
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = Color(0xFF1C1B1F),
+                    contentColor = Color.White
+                )
+            ) {
+                Icon(
+                    Icons.Default.PictureAsPdf,
+                    contentDescription = null,
+                    tint = Color(0xFFEF4444),
+                    modifier = Modifier.size(20.dp)
+                )
+                Spacer(modifier = Modifier.width(10.dp))
+                Text(
+                    text = translate("Export PDF Guide", appLanguage),
+                    fontSize = 15.sp,
+                    fontWeight = FontWeight.SemiBold,
+                    color = Color.White
+                )
+            }
+
             Spacer(modifier = Modifier.height(48.dp))
         }
     }

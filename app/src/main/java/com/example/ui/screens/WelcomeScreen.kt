@@ -94,11 +94,27 @@ fun WelcomeScreen(
                 
                 Spacer(modifier = Modifier.height(48.dp))
                 
-                Row {
+                Row(verticalAlignment = Alignment.CenterVertically) {
                     Text(translate("Survive", selectedLanguage), fontWeight = FontWeight.SemiBold, color = Color.White, fontSize = 36.sp)
                     Text("IN", fontWeight = FontWeight.SemiBold, color = Color(0xFF60A5FA), fontSize = 36.sp)
                 }
-                
+
+                Spacer(modifier = Modifier.height(8.dp))
+
+                Surface(
+                    shape = RoundedCornerShape(12.dp),
+                    color = Color(0xFF1E293B),
+                    border = androidx.compose.foundation.BorderStroke(1.dp, Color(0xFF334155))
+                ) {
+                    Text(
+                        text = "v3.0 • +91 Vault & Offline PDF Guides",
+                        color = Color(0xFF60A5FA),
+                        fontSize = 11.sp,
+                        fontWeight = FontWeight.SemiBold,
+                        modifier = Modifier.padding(horizontal = 10.dp, vertical = 4.dp)
+                    )
+                }
+
                 Spacer(modifier = Modifier.height(16.dp))
                 
                 Text(
